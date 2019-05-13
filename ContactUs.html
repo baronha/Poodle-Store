@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Poodle Store</title>
+
+	<!-- Google Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="CSS/animate.css">
+	<!-- Custom Stylesheet -->
+	<link rel="stylesheet" href="CSS/style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<link rel="SHORTCUT ICON" href="sneaker.png">
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="top">
+			<h1 id="title" class="hidden"><span id="logo">P o o d l e <span>Store</span></span></h1>
+		</div>
+		<div class="login-box animated fadeInUp">
+			<div class="box-header">
+				<h2>Contact Us</h2>
+			</div>
+			<label for="username">Your Email</label>
+			<br/>
+			<input type="text" id="username">
+			<br/>
+			<label for="message">Message</label>
+			<br/>
+			<textarea rows="4" cols="20" name="comment" form="usrform"></textarea>
+			<br/>
+			<button type="submit" id="timer" onclick="countDown();">Send</button>
+			<br/>
+			<a href="Homepage.html"><p class="small">Come Back</p></a>
+		</div>
+	</div>
+</body>
+
+<script>
+	$(document).ready(function () {
+    	$('#logo').addClass('animated fadeInDown');
+    	$("input:text:visible:first").focus();
+	});
+	$('#username').focus(function() {
+		$('label[for="username"]').addClass('selected');
+	});
+	$('#username').blur(function() {
+		$('label[for="username"]').removeClass('selected');
+	});
+	$('#password').focus(function() {
+		$('label[for="password"]').addClass('selected');
+	});
+	$('#password').blur(function() {
+		$('label[for="password"]').removeClass('selected');
+	});
+</script>
+<script type="text/javascript">
+	var count = 155;
+	var redirect = "Homepage.html";
+	function countDown(){
+		var timer = document.getElementById("timer");
+		if(count > 0){
+			count--;
+			timer.innerHTML = " Cám ơn bạn đã gửi Email về cho chúng tôi. Bạn sẽ quay về trang chủ sau <b>"+count+"</b> giây.";
+			setTimeout("countDown()", 1000);
+		}else{
+			window.location.href = redirect;
+		}
+	}
+	</script>
+
+</html>
